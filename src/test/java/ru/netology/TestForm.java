@@ -1,3 +1,5 @@
+package ru.netology;
+
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.exactText;
@@ -14,7 +16,9 @@ public class TestForm {
         $("[type=tel]").setValue("+79270000000");
         $(".checkbox__box").click();
         $("[button.button]").click();
-        $("Success_successBlock__2L3Cw > p").shouldHave(exactText("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время."));
+        $("[data-test-id='order-success']")
+        .shouldHave(exactText("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время."));
+
     }
-    
+
 }
